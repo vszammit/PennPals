@@ -1,0 +1,99 @@
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+CIS 120 HW05 README
+PennKey: vzammit
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+
+============
+=: Task 2 :=
+============
+
+- Do you plan on creating any new classes in your design? If so, what classes
+  are you making, what do they store, and what behaviors do they have?
+
+I am making a class for Channels. A Channel object has instance variables for it's owner,
+it's private state, and the users in the channel. There are many accessor and mutator methods
+for getting the owner, getting the users, checking the privacy, adding users and
+removing users.
+
+- How do you plan on storing what users are registered on the server?
+I store the registered users in a TreeMap because the users can have a userID and a
+nickname, so the Key will be the userID and the Value will be the nickname.
+
+- How do you plan on keeping track of which user has which user ID, considering
+  the fact that the user's nickname can change over the course of the program?
+
+You keep the userID in the tree map as a key, and since the nickname is a value, the key
+can't be changed, so you can change the value without changing the userID.
+
+- How do you plan on storing what users are in a channel?
+
+The users in a channel are in a TreeSet.
+
+- How do you plan on keeping track of which user is the owner of each channel?
+
+The owner of each channel is implemented in the Channel class, and the accessor method
+getOwner() is helpful to keep track of which user is the owner.
+
+- Justify your choice of collections (Set, Map, or List) for the
+  collections you use in your design.
+
+Maps and Sets were very useful for the design of this program. This is because we were able
+to store values for Key and Values, as well as E, respectively, in a useful way that
+aided in the design of the program. Maps and Sets are also helpful with mutability constraints.
+
+============
+=: Task 3 :=
+============
+
+- Did you make any changes to your design while doing this task? Why?
+When working on the method for checkNickname, I was having a lot of trouble figuring it out, so I
+had to implement a helper method called getCommon to check if the nickname is in the
+mapEntry or not.
+
+============
+=: Task 4 :=
+============
+
+- Did you make any changes to your design while doing this task? Why?
+
+I did not have to make any changes to my design while doing this task. However, I did
+have to clean up my Channel class and make sure my getUsersInChannel() method was
+fully encapsulated. I was having many issues with getUsersInChannel(). However, I solved
+this issue by making a copy of the TreeSet to ensure encapsulation is remained.
+
+============
+=: Task 5 :=
+============
+
+- How do you plan on keeping track of which channels are invite-only?
+
+In my Channel class, I added instance variables and methods to keep track
+of privacy in order to keep track of which channels are invite-only. I also made sure
+to check the privacy of the channels in my functions in ServerModel. In my Channel
+class, I made sure to have a method that checks if the channel is private or not.
+
+- Will you make any changes to your work from before in order to make
+  implementing invite-only channels easier?
+
+Yes, I had to make changes to my Channel class and my work from ServerModel in order
+to make implementing invite-only channels easier. But implementing the privacy in the methods
+from Task 4 did not change too much altering. I only had to add a few more lines of code
+and none of my fundamental design had to be changed.
+
+============
+=: Task 6 :=
+============
+
+- Did you have to make any changes to your design in Task 6? Why?
+
+I had to eliminate some unnecessary code that was written in my Channel class. I made extra
+accessor methods and mutator methods in Channel that were not used in the code. I also
+had to fix some style errors and errors with Broadcast in Tasks 4 and 5.
+
+- If you were to redo this assignment, what changes (if any) would you make in
+  how you designed your code?
+
+If I could redo this assignment, I would probably add more helper functions, specifically
+with the deregisterUser method in order to clean up the code. Also, my variable names were
+pretty confusing and hard to keep track of, so next time I will be more cognizant of my
+variable name choice.
